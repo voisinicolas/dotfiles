@@ -3,6 +3,7 @@
 #Modified 23-01-02
 alias so='source ~/.config/zsh/.zshrc'
 alias vz='nvim ~/.config/zsh/.zshrc'
+alias vzz='nvim ~/.config/zsh/.zsh_plugins.txt'
 alias va='nvim ~/.config/zsh/zsh_aliases'
 
 alias v='nvim'
@@ -29,3 +30,20 @@ alias ic='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs'
 alias pg='ping -v'
 alias pi='ping 1.1.1.1'
 alias wakedewey="ssh -t 10.0.1.1 'wol 90:09:d0:33:49:06 -h 10.0.2.25'"
+
+# nvim configuration chooser
+alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
+alias nvim-kick="NVIM_APPNAME=kickstart nvim"
+alias nvimz="NVIM_APPNAME=nvimz nvim"
+#alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
+function nvims() {
+  items=("default" "kickstart" "nvimz" "AstroNvim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
