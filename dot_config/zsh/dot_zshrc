@@ -39,7 +39,7 @@ autoload -Uz promptinit && promptinit && prompt powerlevel10k
 
 ##ALIASES
 #
-source ~/.config/zsh/zsh_aliases
+source ${ZDOTDIR:-~}/zsh_aliases
 source ~/.rlm/rlmenvset.sh
 
 
