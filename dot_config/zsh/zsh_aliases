@@ -1,0 +1,31 @@
+#ZSH NVZ Aliases
+
+#Modified 23-01-02
+alias so='source ~/.config/zsh/.zshrc'
+alias vz='nvim ~/.config/zsh/.zshrc'
+alias va='nvim ~/.config/zsh/zsh_aliases'
+
+alias v='nvim'
+alias l="lsd -lAh --group-directories-first"
+alias lt="lsd -lAh --group-directories-first --tree"
+alias ta="tmux attach"
+
+# HOMEBREW
+#
+alias up="brew update && brew upgrade −−require−sha && brew cleanup && mas upgrade"
+alias bu="brew update"
+alias bi='brew install'
+
+#alias ccat='pygmentize -g -O style=colorful,linenos=1'
+#alias cat='bat --color=always'
+
+#FOLDERS ALIASES
+
+alias ic='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs'
+
+
+## Network
+
+alias pg='ping -v'
+alias pi='ping 1.1.1.1'
+alias wakedewey="ssh -t 10.0.1.1 'wol 90:09:d0:33:49:06 -h 10.0.2.25'"

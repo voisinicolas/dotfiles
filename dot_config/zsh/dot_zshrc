@@ -1,0 +1,79 @@
+## PATHS 
+
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH=~/.scripts/:$PATH #My scripts
+
+# AUTOCOMPLETION BUILTIN
+
+#autoload -U compinit && compinit
+#autoload predict-on
+#predict-on
+#setopt SHARE_HISTORY
+HISTFILE=$HOME/.config/zsh/.zsh_history
+SAVEHIST=10000
+#HISTSIZE=999
+#setopt HIST_EXPIRE_DUPS_FIRST
+
+## PLUGINS
+
+source ~/.config/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+#.config/zsh_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+# bindkey '^ ' autosuggest-accept
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'  # Case sensitive completion
+autoload -U compinit && compinit
+
+source ~/.config/zsh/plugins/zsh-macos/macos.plugin.zsh
+
+CASE_SENSITIVE="true"
+
+## COMMAND PROMPT
+
+# PROMPT='%B%F{31}%n %f %b %m @ %c$ '
+PROMPT='%B%F{009}%n%F{039}@%F{214}%m%F{015}:%b%F{039}%~%F{015}\%B$ %f%b' 
+# RPROMPT="%F{111}[%D{%f/%m/%y}|%*]%f"
+
+## Homebrew INSTALL Autocompletion NEEDS TO BE BE LAZY LOADED
+#
+# if type brew &>/dev/null
+# then
+#   FPATH="$(brew --prefix)/share.config/zsh/site-functions:${FPATH}"
+#
+#   autoload -Uz compinit
+#   compinit
+# fi
+
+# nvim configuration chooser
+alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
+alias nvim-kick="NVIM_APPNAME=kickstart nvim"
+alias nvimz="NVIM_APPNAME=nvimz nvim"
+#alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
+function nvims() {
+  items=("default" "kickstart" "nvimz" "AstroNvim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
+bindkey "^a" "nvims\n"
+
+##ALIASES
+#
+source ~/.config/zsh/zsh_aliases
+
+#COLORS
+
+autoload -Uz colors && colors
+
+
+source ~/.rlm/rlmenvset.sh
+
+# Plugins AFTER (must be last) 
+
+source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
