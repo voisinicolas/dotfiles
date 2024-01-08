@@ -6,7 +6,7 @@ shape = "Block"
 
 [env]
 LC_ALL = "en_US.UTF-8"
-TERM = "alacritty"
+# TERM = "alacritty"
 
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
