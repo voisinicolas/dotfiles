@@ -1,0 +1,19 @@
+import = ["/Users/nvz/.config/alacritty/colorscheme.toml", "/Users/nvz/.config/alacritty/fonts.toml"] 
+live_config_reload = true
+
+[cursor.style]
+shape = "Block"
+
+[env]
+LC_ALL = "en_US.UTF-8"
+TERM = "alacritty"
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[window]
+padding = { x=0,y=10}
+#position = {x=40,y=40}
+## dynamic_padding = false
+opacity = 0.9
+startup_mode = "SimpleFullscreen"
