@@ -13,7 +13,7 @@ alias ta="tmux attach"
 
 # HOMEBREW
 #
-alias up="brew update && brew upgrade −−require−sha && brew cleanup && mas upgrade"
+alias up="brew update && brew upgrade && brew cleanup && mas upgrade"
 alias bu="brew update"
 alias bi='brew install'
 
