@@ -15,5 +15,5 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 padding = { x=0,y=10}
 #position = {x=40,y=40}
 ## dynamic_padding = false
-opacity = 0.9
+opacity = 1
 startup_mode = "SimpleFullscreen"
